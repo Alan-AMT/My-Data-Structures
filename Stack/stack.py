@@ -15,7 +15,7 @@ class Stack:
         return self.top == None
       
     #Observers    
-    def get_top(self):
+    def peek(self):
         if Stack.is_empty(self):
             raise Exception("Stack is empty")
         return self.top.data
