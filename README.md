@@ -6,3 +6,5 @@ Each code implementation includes the main functionalities of the data structure
     "Observers"
     "Destroyers".
     Some data structures may have an extra group called "Special" for specific structure-realted functionalities
+
+NOTE: These code implementations are mainly based on books and courses but some of them have a "refactored" branch in which I coded them to be easier to use or code (using inheritance)
