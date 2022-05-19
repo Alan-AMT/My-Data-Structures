@@ -1,9 +1,9 @@
-class BinarySearchTree:
-    def __init__(self,data):
-        self.root = data
-        self.left = None
-        self.right = None
+from Binary_Tree import BinaryTree
 
+class BinarySearchTree(BinaryTree):
+    def __init__(self, data):
+        super().__init__(data)
+        
     def insert(sub_tree, data):
         if sub_tree.root == data:
             raise ValueError("Class 'BinarySearchTree' can't have repeated values")
@@ -17,28 +17,6 @@ class BinarySearchTree:
                 sub_tree.left = BinarySearchTree(data)
             else:
                 BinarySearchTree.insert(sub_tree.left,data)
-
-    def pre_order(sub_tree):
-        if sub_tree:
-            print(sub_tree.root, end="-")
-            BinarySearchTree.pre_order(sub_tree.left)
-            BinarySearchTree.pre_order(sub_tree.right)
-            
-    def in_order(sub_tree):
-        if sub_tree:
-            BinarySearchTree.in_order(sub_tree.left)
-            print(sub_tree.root, end="-")
-            BinarySearchTree.in_order(sub_tree.right)
-            
-    def post_order(sub_tree):
-        if sub_tree:
-            BinarySearchTree.post_order(sub_tree.left)
-            BinarySearchTree.post_order(sub_tree.right)
-            print(sub_tree.root, end="-")
-
-    def __str__(self):
-        self.in_order()
-        return ""
 
     def search(sub_tree, target):
         if sub_tree:
@@ -58,7 +36,4 @@ s.insert(11)
 s.insert(7)
 s.insert(9)
 s.insert(56)
-s.in_order()
-s.search(11)
-print()
-print(s)
+print(s.in_order())
