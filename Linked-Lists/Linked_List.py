@@ -35,10 +35,34 @@ class LinkedList:
             linked_list_data += f"{current_node.data}-"
             current_node = current_node.next
         return linked_list_data
+    
+    def delete(self, key):
+        current_node = self.head
+        if not current_node:
+            raise ValueError ("Linked List is empty")
+            
+        if current_node.data == key:
+            self.head = current_node.next
+            del current_node
+            gc.collect()
+        else:
+            while current_node.next:
+                if current_node.next.data == key:
+                    t = current_node.next
+                    current_node.next = t.next
+                    del t
+                    gc.collect()
+                    break
+                current_node = current_node.next
+            else:
+                raise ValueError (f"Node {key} not found in Linked List")
 
 my_ll = LinkedList()
 my_ll.append(2)
 my_ll.prepend(1)
 my_ll.insert_after_node(3, my_ll.head.next)
 my_ll.append(4)
+print(my_ll)
+
+my_ll.delete(4)
 print(my_ll)
