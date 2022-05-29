@@ -47,7 +47,7 @@ class Stack:
     
     
 ################ SIMPLEST IMPLEMTATION #################
-    class Stack():
+class Stack:
     def __init__(self):
         self.items = []
 
@@ -55,8 +55,8 @@ class Stack:
         self.items.append(item)				
 
     def pop(self):
-	if not self.is_empty():
-		return self.items.pop()
+	    if not self.is_empty():
+		    return self.items.pop()
     
     def is_empty(self):
         return self.items == []
@@ -67,3 +67,6 @@ class Stack:
         
     def get_stack(self):
         return self.items
+
+x = Stack()
+print(x.is_empty())
