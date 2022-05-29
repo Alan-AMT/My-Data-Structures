@@ -1,6 +1,6 @@
 import gc
 
-class Node:
+class _Node:
     def __init__(self, data, previous):
         self.data = data
         self.previous = previous
@@ -22,7 +22,7 @@ class Stack:
       
     #Constructors    
     def push(self, data):
-        self.top = Node(data, self.top)
+        self.top = _Node(data, self.top)
         
     #Destroyers
     def pop(self):
@@ -55,8 +55,8 @@ class Stack:
         self.items.append(item)				
 
     def pop(self):
-				if not self.is_empty():
-		        return self.items.pop()
+	if not self.is_empty():
+		return self.items.pop()
     
     def is_empty(self):
         return self.items == []
