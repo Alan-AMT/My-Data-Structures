@@ -67,6 +67,3 @@ class Stack:
         
     def get_stack(self):
         return self.items
-
-x = Stack()
-print(x.is_empty())
