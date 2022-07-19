@@ -6,6 +6,7 @@ class _LinkedListNode:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self._size = 0
 
     def insert_after_node(self, data, target_node=None):
         if not target_node:
@@ -13,6 +14,7 @@ class LinkedList:
         new_node = _LinkedListNode(data)
         new_node.next = target_node.next
         target_node.next = new_node
+        self._size += 1
 
     def append(self, data):
         if not self.head:
@@ -22,11 +24,13 @@ class LinkedList:
             while current_node.next:
                 current_node = current_node.next
             current_node.next = _LinkedListNode(data)
+        self._size += 1
 
     def prepend(self, data):
         new_node = _LinkedListNode(data)
         new_node.next = self.head
         self.head = new_node
+        self._size += 1
 
     def __str__(self,):
         current_node = self.head
@@ -44,30 +48,22 @@ class LinkedList:
         if current_node.data == key:
             self.head = current_node.next
             del current_node
-            #gc.collect()
+            gc.collect()
         else:
             while current_node.next:
                 if current_node.next.data == key:
                     t = current_node.next
                     current_node.next = t.next
                     del t
-                    #gc.collect()
+                    gc.collect()
                     break
                 current_node = current_node.next
             else:
                 raise ValueError (f"Node {key} not found in Linked List")
+        self._size -= 1
     
     def __len__(self):
-        if not self.head:
-            return 0
-
-        list_lenght = 0
-        current = self.head
-        while current:
-            list_lenght += 1
-            current = current.next
-
-        return list_lenght
+        return self._size
     
     def swap_nodes(self, key1, key2):
         current1 = self.head
